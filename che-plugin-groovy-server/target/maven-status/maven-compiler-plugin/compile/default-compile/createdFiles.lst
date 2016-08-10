@@ -1,0 +1,3 @@
+org/eclipse/che/plugin/groovy/server/generator/GroovyCreateProjectHandler.class
+org/eclipse/che/plugin/groovy/server/inject/GuiceModule.class
+org/eclipse/che/plugin/groovy/server/projecttype/GroovyProjectType.class
