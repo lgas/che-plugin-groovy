@@ -15,6 +15,9 @@ import com.google.inject.name.Named;
 import org.eclipse.che.ide.api.editor.EditorRegistry;
 import org.eclipse.che.ide.api.extension.Extension;
 import org.eclipse.che.ide.api.filetypes.FileType;
+import org.eclipse.che.ide.editor.orion.client.OrionContentTypeRegistrant;
+import org.eclipse.che.ide.editor.orion.client.jso.OrionContentTypeOverlay;
+import org.eclipse.che.ide.editor.orion.client.jso.OrionHighlightingConfigurationOverlay;
 import org.eclipse.che.plugin.groovy.ide.editor.GroovyEditorProvider;
 
 /**
@@ -29,5 +32,32 @@ public class GroovyJSEditorExtension {
                                    final GroovyEditorProvider groovyEditorProvider) {
 
         eRegistry.registerDefaultEditor(fType, groovyEditorProvider);
+    }
+
+    @Inject
+    protected void configureContentType(final OrionContentTypeRegistrant contentTypeRegistrant) {
+        // register content type and configure orion
+        final String contentTypeId = "text/x-groovy";
+
+        OrionContentTypeOverlay contentType = OrionContentTypeOverlay.create();
+        contentType.setId(contentTypeId);
+        contentType.setName("Groovy Language");
+        contentType.setExtension("groovy");
+        contentType.setExtends("text/plain");
+
+        // highlighting
+        OrionHighlightingConfigurationOverlay config = OrionHighlightingConfigurationOverlay.create();
+        config.setId("orion.groovy");
+        config.setContentTypes(contentTypeId);
+        config.setPatterns(
+                "[\n" +
+                        "  {include: \"orion.java\"},\n" +
+                        "  {\n" +
+                        "    match: \"\\\\b(?:it|delegate|owner|as|in|def|threadsafe|assert|use|with)\\\\b\",\n" +
+                        "    name: \"keyword.groovy\"\n" +
+                        "  }\n" +
+                        "]");
+
+        contentTypeRegistrant.registerFileType(contentType, config);
     }
 }

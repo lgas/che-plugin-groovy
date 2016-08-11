@@ -20,11 +20,11 @@
     </parent>
     <artifactId>che-plugin-groovy-server</artifactId>
     <dependencies>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>18.0</version>
-        </dependency>
+        <!--<dependency>-->
+        <!--<groupId>com.google.guava</groupId>-->
+        <!--<artifactId>guava</artifactId>-->
+        <!--<version>18.0</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>com.google.inject</groupId>
             <artifactId>guice</artifactId>
@@ -37,10 +37,10 @@
         <!--<groupId>javax.ws.rs</groupId>-->
         <!--<artifactId>javax.ws.rs-api</artifactId>-->
         <!--</dependency>-->
-        <dependency>
-            <groupId>org.eclipse.che.core</groupId>
-            <artifactId>che-core-api-core</artifactId>
-        </dependency>
+        <!--<dependency>-->
+        <!--<groupId>org.eclipse.che.core</groupId>-->
+        <!--<artifactId>che-core-api-core</artifactId>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>org.eclipse.che.core</groupId>
             <artifactId>che-core-api-project</artifactId>
