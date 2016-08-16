@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.eclipse.che.plugin.groovy.ide.editor;
 
+import com.google.inject.Inject;
 import org.eclipse.che.ide.api.editor.EditorPartPresenter;
 import org.eclipse.che.ide.api.editor.EditorProvider;
 import org.eclipse.che.ide.api.editor.defaulteditor.AbstractTextEditorProvider;
@@ -21,7 +22,12 @@ import org.eclipse.che.ide.api.editor.texteditor.TextEditor;
  */
 public class GroovyEditorProvider extends AbstractTextEditorProvider {
 
-    public GroovyEditorProvider() {}
+    private final GroovyEditorConfigurationFactory editorConfigurationFactory;
+
+    @Inject
+    public GroovyEditorProvider(final GroovyEditorConfigurationFactory editorConfigurationFactory) {
+        this.editorConfigurationFactory = editorConfigurationFactory;
+    }
 
     @Override
     public String getId() {
@@ -35,6 +41,7 @@ public class GroovyEditorProvider extends AbstractTextEditorProvider {
 
     @Override
     protected TextEditorConfiguration getEditorConfiguration() {
-        return new GroovyEditorConfiguration();
+        return editorConfigurationFactory.create(this.getEditor());
+
     }
 }

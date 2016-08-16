@@ -11,22 +11,26 @@
 package org.eclipse.che.plugin.groovy.ide.inject;
 
 import com.google.gwt.inject.client.AbstractGinModule;
+import com.google.gwt.inject.client.assistedinject.GinFactoryModuleBuilder;
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
 import com.google.inject.name.Named;
 import org.eclipse.che.ide.api.extension.ExtensionGinModule;
 import org.eclipse.che.ide.api.filetypes.FileType;
 import org.eclipse.che.plugin.groovy.ide.Resources;
+import org.eclipse.che.plugin.groovy.ide.editor.GroovyCodeAssistProcessorFactory;
+import org.eclipse.che.plugin.groovy.ide.editor.GroovyEditorConfigurationFactory;
 
 
 /**
  * Created by galaloum on 24/06/2016.
  */
 @ExtensionGinModule
-public class GinModule extends AbstractGinModule {
+public class GroovyGinModule extends AbstractGinModule {
     @Override
     protected void configure() {
-        //Nothing to do here, yet
+        install(new GinFactoryModuleBuilder().build(GroovyCodeAssistProcessorFactory.class));
+        install(new GinFactoryModuleBuilder().build(GroovyEditorConfigurationFactory.class));
     }
 
     @Provides

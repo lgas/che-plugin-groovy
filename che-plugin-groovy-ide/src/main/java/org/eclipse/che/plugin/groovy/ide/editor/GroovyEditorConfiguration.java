@@ -10,13 +10,15 @@
  *******************************************************************************/
 package org.eclipse.che.plugin.groovy.ide.editor;
 
+import com.google.inject.assistedinject.Assisted;
+import com.google.inject.assistedinject.AssistedInject;
 import org.eclipse.che.ide.api.editor.codeassist.CodeAssistProcessor;
 import org.eclipse.che.ide.api.editor.editorconfig.AutoSaveTextEditorConfiguration;
+import org.eclipse.che.ide.api.editor.partition.DocumentPartitioner;
+import org.eclipse.che.ide.api.editor.texteditor.TextEditor;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-
-import static org.eclipse.che.ide.api.editor.texteditor.TextEditorPresenter.DEFAULT_CONTENT_TYPE;
 
 /**
  * Created by galaloum on 24/06/2016.
@@ -24,9 +26,11 @@ import static org.eclipse.che.ide.api.editor.texteditor.TextEditorPresenter.DEFA
 public class GroovyEditorConfiguration extends AutoSaveTextEditorConfiguration{
     private Map<String, CodeAssistProcessor> codeAssist;
 
-    public GroovyEditorConfiguration() {
+    @AssistedInject
+    public GroovyEditorConfiguration(@Assisted final TextEditor editor, final GroovyCodeAssistProcessorFactory codeAssistProcessorFactory) {
         codeAssist = new LinkedHashMap<>();
-        codeAssist.put(DEFAULT_CONTENT_TYPE, new GroovyCodeAssistProcessor());
+        GroovyCodeAssistProcessor codeAssistProcessor = codeAssistProcessorFactory.create(editor);
+        codeAssist.put(DocumentPartitioner.DEFAULT_CONTENT_TYPE, codeAssistProcessor);
     }
 
     @Override
