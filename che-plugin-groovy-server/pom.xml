@@ -16,7 +16,7 @@
     <parent>
         <artifactId>che-plugin-groovy-parent</artifactId>
         <groupId>org.eclipse.che.plugin</groupId>
-        <version>4.7.0-SNAPSHOT</version>
+        <version>4.7.0-RC2-SNAPSHOT</version>
     </parent>
     <artifactId>che-plugin-groovy-server</artifactId>
     <dependencies>
@@ -33,10 +33,10 @@
             <groupId>com.google.inject.extensions</groupId>
             <artifactId>guice-multibindings</artifactId>
         </dependency>
-        <!--<dependency>-->
-        <!--<groupId>javax.ws.rs</groupId>-->
-        <!--<artifactId>javax.ws.rs-api</artifactId>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+        </dependency>
         <!--<dependency>-->
         <!--<groupId>org.eclipse.che.core</groupId>-->
         <!--<artifactId>che-core-api-core</artifactId>-->
@@ -52,7 +52,7 @@
         <dependency>
             <groupId>org.eclipse.che.plugin</groupId>
             <artifactId>che-plugin-groovy-shared</artifactId>
-            <version>4.7.0-SNAPSHOT</version>
+            <version>4.7.0-RC2-SNAPSHOT</version>
         </dependency>
     </dependencies>
     <build>
