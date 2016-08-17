@@ -27,10 +27,12 @@ public class GroovyEditorConfiguration extends AutoSaveTextEditorConfiguration{
     private Map<String, CodeAssistProcessor> codeAssist;
 
     @AssistedInject
-    public GroovyEditorConfiguration(@Assisted final TextEditor editor, final GroovyCodeAssistProcessorFactory codeAssistProcessorFactory) {
+    public GroovyEditorConfiguration(@Assisted final TextEditor editor//, final GroovyCodeAssistProcessorFactory codeAssistProcessorFactory
+    ) {
         codeAssist = new LinkedHashMap<>();
-        GroovyCodeAssistProcessor codeAssistProcessor = codeAssistProcessorFactory.create(editor);
-        codeAssist.put(DocumentPartitioner.DEFAULT_CONTENT_TYPE, codeAssistProcessor);
+//        GroovyCodeAssistProcessor codeAssistProcessor = codeAssistProcessorFactory.create(editor);
+//        codeAssist.put(DocumentPartitioner.DEFAULT_CONTENT_TYPE, codeAssistProcessor);
+        codeAssist.put(DocumentPartitioner.DEFAULT_CONTENT_TYPE, new GroovyCodeAssistProcessor());
     }
 
     @Override

@@ -40,8 +40,10 @@ public class GroovyEditorProvider extends AbstractTextEditorProvider {
     }
 
     @Override
-    protected TextEditorConfiguration getEditorConfiguration() {
-        return editorConfigurationFactory.create(this.getEditor());
-
+    public TextEditor getEditor() {
+        TextEditor editor = super.getEditor();
+        TextEditorConfiguration configuration = this.editorConfigurationFactory.create(editor);
+        editor.initialize(configuration);
+        return editor;
     }
 }

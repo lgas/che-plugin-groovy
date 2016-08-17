@@ -27,16 +27,16 @@ import java.util.List;
  */
 public class GroovyCodeAssistProcessor implements CodeAssistProcessor {
 
-    private final GroovyCodeAssistClient client;
-    private final Unmarshallable<List<String>> unmarshaller;
-    private String errorMessage;
-
-    @Inject
-    public GroovyCodeAssistProcessor(final GroovyCodeAssistClient client) {
-        this.client = client;
-        this.unmarshaller = new StringListUnmarshaller();
-        this.errorMessage = null;
-    }
+//    private final GroovyCodeAssistClient client;
+//    private final Unmarshallable<List<String>> unmarshaller;
+//    private String errorMessage;
+//
+//    @Inject
+//    public GroovyCodeAssistProcessor(final GroovyCodeAssistClient client) {
+//        this.client = client;
+//        this.unmarshaller = new StringListUnmarshaller();
+//        this.errorMessage = null;
+//    }
 
     @Override
     public void computeCompletionProposals(final TextEditor editor, final int offset, final CodeAssistCallback callback) {
@@ -48,28 +48,29 @@ public class GroovyCodeAssistProcessor implements CodeAssistProcessor {
                 new SimpleCompletionProposal("age")
         ));
 
-        client.computeProposals(new AsyncRequestCallback<List<String>>(unmarshaller) {
-            @Override
-            protected void onSuccess(List<String> additionalProposals) {
-                errorMessage = null;
-
-                for (String additionalProposal : additionalProposals) {
-                    proposals.add(new SimpleCompletionProposal(additionalProposal));
-                }
-                callback.proposalComputed(proposals);
-            }
-
-            @Override
-            protected void onFailure(Throwable exception) {
-                errorMessage = exception.getMessage();
-            }
-        });
+//        client.computeProposals(new AsyncRequestCallback<List<String>>(unmarshaller) {
+//            @Override
+//            protected void onSuccess(List<String> additionalProposals) {
+//                errorMessage = null;
+//
+//                for (String additionalProposal : additionalProposals) {
+//                    proposals.add(new SimpleCompletionProposal(additionalProposal));
+//                }
+//                callback.proposalComputed(proposals);
+//            }
+//
+//            @Override
+//            protected void onFailure(Throwable exception) {
+//                errorMessage = exception.getMessage();
+//            }
+//        });
 
         callback.proposalComputed(proposals);
     }
 
     @Override
     public String getErrorMessage() {
-        return errorMessage;
+        return null;
+        //return errorMessage;
     }
 }
