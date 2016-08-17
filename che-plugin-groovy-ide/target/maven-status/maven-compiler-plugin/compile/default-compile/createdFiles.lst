@@ -1,9 +1,0 @@
-org/eclipse/che/plugin/groovy/ide/editor/GroovyCodeAssistProcessor.class
-org/eclipse/che/plugin/groovy/ide/editor/SimpleCompletion.class
-org/eclipse/che/plugin/groovy/ide/editor/GroovyEditorProvider.class
-org/eclipse/che/plugin/groovy/ide/GroovyJSEditorExtension.class
-org/eclipse/che/plugin/groovy/ide/inject/GinModule.class
-org/eclipse/che/plugin/groovy/ide/editor/SimpleCompletionProposal.class
-org/eclipse/che/plugin/groovy/ide/editor/GroovyEditorConfiguration.class
-org/eclipse/che/plugin/groovy/ide/Resources.class
-org/eclipse/che/plugin/groovy/ide/FileTypeExtension.class
