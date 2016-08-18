@@ -13,6 +13,7 @@ package org.eclipse.che.plugin.groovy.server.projecttype;
 import com.google.inject.Inject;
 import org.eclipse.che.api.project.server.type.ProjectTypeDef;
 
+import static org.eclipse.che.plugin.groovy.shared.Constants.GROOVY_LANG;
 import static org.eclipse.che.plugin.groovy.shared.Constants.GROOVY_PROJECT_TYPE_ID;
 import static org.eclipse.che.plugin.groovy.shared.Constants.LANGUAGE;
 
@@ -22,7 +23,7 @@ import static org.eclipse.che.plugin.groovy.shared.Constants.LANGUAGE;
 public class GroovyProjectType extends ProjectTypeDef {
     @Inject
     public GroovyProjectType() {
-        super(GROOVY_PROJECT_TYPE_ID, "GROOVY", true, true);
-        addConstantDefinition(LANGUAGE, LANGUAGE, GROOVY_PROJECT_TYPE_ID);
+        super(GROOVY_PROJECT_TYPE_ID, GROOVY_PROJECT_TYPE_ID, true, false);
+        addConstantDefinition(LANGUAGE, LANGUAGE, GROOVY_LANG);
     }
 }

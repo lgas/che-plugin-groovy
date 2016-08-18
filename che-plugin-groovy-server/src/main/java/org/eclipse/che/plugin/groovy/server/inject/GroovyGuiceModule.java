@@ -12,8 +12,10 @@ package org.eclipse.che.plugin.groovy.server.inject;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.multibindings.Multibinder;
+import org.eclipse.che.api.project.server.handlers.ProjectHandler;
 import org.eclipse.che.api.project.server.type.ProjectTypeDef;
 import org.eclipse.che.plugin.groovy.server.GroovyCompletionService;
+import org.eclipse.che.plugin.groovy.server.generator.GroovyCreateProjectHandler;
 import org.eclipse.che.plugin.groovy.server.projecttype.GroovyProjectType;
 
 import static com.google.inject.multibindings.Multibinder.newSetBinder;
@@ -26,6 +28,9 @@ public class GroovyGuiceModule extends AbstractModule{
     protected void configure() {
         Multibinder<ProjectTypeDef> projectTypeDefMultibinder = newSetBinder(binder(), ProjectTypeDef.class);
         projectTypeDefMultibinder.addBinding().to(GroovyProjectType.class);
+
+        Multibinder<ProjectHandler> projectHandlerMultibinder = newSetBinder(binder(), ProjectHandler.class);
+        projectHandlerMultibinder.addBinding().to(GroovyCreateProjectHandler.class);
 
         bind(GroovyCompletionService.class);
     }

@@ -27,17 +27,12 @@ public final class Constants {
     /**
      * Groovy Project Type ID.
      */
-    public static final String GROOVY_PROJECT_TYPE_ID = "Groovy";
+    public static final String GROOVY_PROJECT_TYPE_ID = "groovy";
 
     /**
      * Groovy Category.
      */
     public static final String GROOVY_CATEGORY    = "GROOVY";
-
-    /**
-     * Groovy Schema reference attribute name.
-     */
-    public static final String GROOVY_SCHEMA_REF_ATTRIBUTE = "groovy-schem-ref";
 
     private Constants() {
 
