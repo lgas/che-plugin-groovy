@@ -31,7 +31,6 @@
     <orderEntry type="library" name="Maven: org.everrest:everrest-core:1.13.1" level="project" />
     <orderEntry type="library" name="Maven: commons-fileupload:commons-fileupload:1.2.1" level="project" />
     <orderEntry type="library" name="Maven: javax.mail:mail:1.4.4" level="project" />
-    <orderEntry type="library" name="Maven: commons-io:commons-io:2.4" level="project" />
     <orderEntry type="library" name="Maven: org.everrest:everrest-websockets:1.13.1" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:javax.servlet-api:3.1.0" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.6" level="project" />
@@ -56,10 +55,12 @@
     <orderEntry type="module" module-name="che-core-api-ssh-shared" />
     <orderEntry type="module" module-name="che-core-api-user-shared" />
     <orderEntry type="module" module-name="che-core-api-workspace-shared" />
-    <orderEntry type="module" module-name="che-plugin-orion-editor" />
     <orderEntry type="module" module-name="che-core-ide-app" />
     <orderEntry type="module" module-name="che-core-ide-generators" />
+    <orderEntry type="library" name="Maven: commons-io:commons-io:2.4" level="project" />
     <orderEntry type="module" module-name="che-core-ide-ui" />
+    <orderEntry type="module" module-name="che-plugin-groovy-shared" />
+    <orderEntry type="module" module-name="che-plugin-orion-editor" />
     <orderEntry type="library" name="Maven: org.vectomatic:lib-gwt-svg:0.5.10" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.gwt:gwt-user:2.7.0" level="project" />
   </component>

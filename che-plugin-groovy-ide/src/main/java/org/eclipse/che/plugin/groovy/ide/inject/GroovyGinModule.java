@@ -24,6 +24,8 @@ import org.eclipse.che.plugin.groovy.ide.editor.GroovyCodeAssistProcessorFactory
 import org.eclipse.che.plugin.groovy.ide.editor.GroovyEditorConfigurationFactory;
 import org.eclipse.che.plugin.groovy.ide.project.GroovyProjectWizardRegistrar;
 
+import static org.eclipse.che.plugin.groovy.shared.Constants.GROOVY_EXT;
+
 
 /**
  * Created by galaloum on 24/06/2016.
@@ -42,6 +44,6 @@ public class GroovyGinModule extends AbstractGinModule {
     @Singleton
     @Named("GroovyFileType")
     protected FileType provideGroovyFileType() {
-        return new FileType(Resources.INSTANCE.icon(), "groovy");
+        return new FileType(Resources.INSTANCE.icon(), GROOVY_EXT);
     }
 }

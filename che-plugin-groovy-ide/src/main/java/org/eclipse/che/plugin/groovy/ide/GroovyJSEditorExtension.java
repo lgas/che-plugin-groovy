@@ -12,13 +12,19 @@ package org.eclipse.che.plugin.groovy.ide;
 
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
+import org.eclipse.che.ide.api.action.ActionManager;
+import org.eclipse.che.ide.api.action.DefaultActionGroup;
+import org.eclipse.che.ide.api.constraints.Constraints;
 import org.eclipse.che.ide.api.editor.EditorRegistry;
 import org.eclipse.che.ide.api.extension.Extension;
 import org.eclipse.che.ide.api.filetypes.FileType;
 import org.eclipse.che.ide.editor.orion.client.OrionContentTypeRegistrant;
 import org.eclipse.che.ide.editor.orion.client.jso.OrionContentTypeOverlay;
 import org.eclipse.che.ide.editor.orion.client.jso.OrionHighlightingConfigurationOverlay;
+import org.eclipse.che.plugin.groovy.ide.action.CreateGroovyFileAction;
 import org.eclipse.che.plugin.groovy.ide.editor.GroovyEditorProvider;
+
+import static org.eclipse.che.ide.api.action.IdeActions.GROUP_FILE_NEW;
 
 /**
  * Created by galaloum on 24/06/2016.
@@ -29,9 +35,15 @@ public class GroovyJSEditorExtension {
     @Inject
     public GroovyJSEditorExtension(final EditorRegistry eRegistry,
                                    @Named("GroovyFileType") final FileType fType,
-                                   final GroovyEditorProvider groovyEditorProvider) {
+                                   final GroovyEditorProvider groovyEditorProvider,
+                                   CreateGroovyFileAction createGroovyFileAction,
+                                   ActionManager actionManager) {
 
         eRegistry.registerDefaultEditor(fType, groovyEditorProvider);
+
+        DefaultActionGroup newGroup = (DefaultActionGroup)actionManager.getAction(GROUP_FILE_NEW);
+        actionManager.registerAction("newGroovyFile", createGroovyFileAction);
+        newGroup.add(createGroovyFileAction, Constraints.FIRST);
     }
 
     @Inject

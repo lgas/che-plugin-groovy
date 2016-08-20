@@ -22,12 +22,12 @@ public final class Constants {
     /**
      * Language attribute value.
      */
-    public static final String GROOVY_LANG    = "groovy";
+    public static final String GROOVY_EXT    = "groovy";
 
     /**
      * Groovy Project Type ID.
      */
-    public static final String GROOVY_PROJECT_TYPE_ID = "groovy";
+    public static final String GROOVY_PROJECT_TYPE_ID = "groovy_project";
 
     /**
      * Groovy Category.

@@ -19,8 +19,8 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-//import static org.eclipse.che.plugin.groovy.shared.Constants.GROOVY_PROJECT_TYPE_ID;
-//import static org.eclipse.che.plugin.groovy.shared.Constants.GROOVY_CATEGORY;
+import static org.eclipse.che.plugin.groovy.shared.Constants.GROOVY_PROJECT_TYPE_ID;
+import static org.eclipse.che.plugin.groovy.shared.Constants.GROOVY_CATEGORY;
 
 
 /**
@@ -35,10 +35,10 @@ public class GroovyProjectWizardRegistrar implements ProjectWizardRegistrar {
     }
 
     @Override @NotNull
-    public String getProjectTypeId() { return "groovy"; }
+    public String getProjectTypeId() { return GROOVY_PROJECT_TYPE_ID; }
 
     @Override @NotNull
-    public String getCategory() { return "GROOVY"; }
+    public String getCategory() { return GROOVY_CATEGORY; }
 
     @Override @NotNull
     public List<Provider<? extends WizardPage<MutableProjectConfig>>> getWizardPages() {

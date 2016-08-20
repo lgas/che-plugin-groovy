@@ -16,7 +16,7 @@ import org.eclipse.che.api.core.ServerException;
 import org.eclipse.che.api.project.server.FolderEntry;
 import org.eclipse.che.api.project.server.handlers.CreateProjectHandler;
 import org.eclipse.che.api.project.server.type.AttributeValue;
-import org.eclipse.che.plugin.groovy.shared.Constants;
+import static org.eclipse.che.plugin.groovy.shared.Constants.GROOVY_PROJECT_TYPE_ID;
 
 import java.util.Map;
 
@@ -28,6 +28,6 @@ public class GroovyCreateProjectHandler implements CreateProjectHandler {
 
     @Override
     public String getProjectType() {
-        return Constants.GROOVY_PROJECT_TYPE_ID;
+        return GROOVY_PROJECT_TYPE_ID;
     }
 }
